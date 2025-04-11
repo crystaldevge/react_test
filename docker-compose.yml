@@ -1,0 +1,13 @@
+services:
+  react_test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: archilitav/react_test:latest
+    container_name: react_test
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3004:3003"  # თუ 3003 დაკავებულია, შეცვალე ჰოსტის მხარეს
+    command: sh -c "npm install && npm start"
