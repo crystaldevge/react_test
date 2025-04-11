@@ -24,5 +24,8 @@ module.exports = {
             filename: 'index.html',
             inject: 'body',
         }),
-    ]
+    ],
+    resolve: {
+        extensions: ['.jsx', '.js'],
+    },
 }
