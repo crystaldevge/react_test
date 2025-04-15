@@ -9,5 +9,5 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3004:3003"  # თუ 3003 დაკავებულია, შეცვალე ჰოსტის მხარეს
+      - "3003:3003"  
     command: sh -c "npm install && npm start"

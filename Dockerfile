@@ -16,7 +16,10 @@ COPY . .
 RUN npm run build
 
 # Serve with a static file server
-RUN npm install -g serve
-CMD ["serve", "-s", "build"]
+RUN npm install -g start
 
-EXPOSE 3000
+# expose port
+EXPOSE 3003
+
+# default command
+CMD ["npm", "start", "build"]
