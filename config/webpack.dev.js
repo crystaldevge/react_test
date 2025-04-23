@@ -14,11 +14,11 @@ const devConfig = {
     // },
     devtool: 'inline-source-map',
     devServer: {
-        static: path.resolve(__dirname, 'dist'),
+        static: path.resolve(__dirname, 'build'),
         hot: true,
         liveReload: true,
         compress: true,
-        port: 3003,
+        port: 8098,
         historyApiFallback: true,
         open: true,
     },

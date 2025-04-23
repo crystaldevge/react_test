@@ -1,0 +1,10 @@
+# services:
+#   react_app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: react_app_stage
+#     ports:
+#       - "8098:8098"
+#     environment:
+#       - REACT_APP_ENV=production

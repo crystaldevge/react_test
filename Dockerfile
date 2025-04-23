@@ -1,25 +1,19 @@
-# Dockerfile
+# Stage 1: build the react app
+FROM node:18-alpine AS build
 
-# Base image
-FROM node:18-alpine
-
-# Working directory inside the container
 WORKDIR /app
-
-# Copy files
 COPY package*.json ./
 RUN npm install
-
 COPY . .
-
-# Build the React app
 RUN npm run build
 
-# Serve with a static file server
-RUN npm install -g start
+# Stage 2: serve with nginx
+FROM nginx:alpine
 
-# expose port
-EXPOSE 3003
+COPY --from=build /app/build /usr/share/nginx/html
 
-# default command
-CMD ["npm", "start", "build"]
+# Optional: custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8098
+CMD ["nginx", "-g", "daemon off;"]
