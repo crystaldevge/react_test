@@ -7,24 +7,24 @@ const packageJson = require('../package.json');
 const devConfig = {
     mode: 'development',
     // entry: './src/index.js',
-    // output: {
-    //     path: path.resolve(__dirname, 'dist'),
-    //     filename: '[name].[contenthash].js',
-    //     publicPath: '/',
-    // },
+    output: {
+        path: path.resolve(__dirname, '../build'),
+        filename: 'main.[contenthash].js',
+        publicPath: 'http://localhost:3001/',
+    },
     devtool: 'inline-source-map',
     devServer: {
         static: path.resolve(__dirname, 'build'),
         hot: true,
         liveReload: true,
         compress: true,
-        port: 8098,
+        port: 3001,
         historyApiFallback: true,
         open: true,
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'reacttest',
+            name: 'react_test',
             filename: 'remoteEntry.js',
             exposes: {
                 './ReactTestApp': './src/bootstrap',

@@ -5,11 +5,7 @@ services:
       dockerfile: Dockerfile
     image: archilitav/react_test:latest
     container_name: react_test
-    working_dir: /app
-    volumes:
-      - .:/app
     ports:
-      - "8098:8098"  
-    command: sh -c "npm install && npm start"
+      - "3001:3001"  
     environment:
       - REACT_APP_ENV=development
