@@ -14,7 +14,7 @@ const devConfig = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: path.resolve(__dirname, 'build'),
+        static: path.resolve(__dirname, '../build'),
         hot: true,
         liveReload: true,
         compress: true,
